@@ -12,6 +12,10 @@ public class Item {
     public String getName() {
         return name;
     }
+
+    //Implemented below method for failing test case in part 3
+    public int getValue(){return  price;}
+
     @Override
     public String toString() {
         return name + ":"
