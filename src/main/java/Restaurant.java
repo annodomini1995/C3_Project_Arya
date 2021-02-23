@@ -20,7 +20,7 @@ public class Restaurant {
     public boolean isRestaurantOpen() {
 
         //Comparing current time with closing time to return true/false
-        return getCurrentTime().isBefore(closingTime);
+        return getCurrentTime().isBefore(closingTime) && getCurrentTime().isAfter(openingTime);
         //DELETE ABOVE STATEMENT AND WRITE CODE HERE
     }
 
