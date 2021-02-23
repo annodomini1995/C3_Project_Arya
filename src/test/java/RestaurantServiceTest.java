@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,6 +44,19 @@ class RestaurantServiceTest {
     }
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //Adding Failing Test method below for TDD feature :Part3
+    @Test
+    public void return_order_value_when_items_are_passed_to_it() throws restaurantNotFoundException {
+
+        restaurant= service.findRestaurantByName("Amelie's cafe");
+        List<Item> items = restaurant.getMenu();
+        int items_sumtotal = 0;
+        for(Item item:items){
+            items_sumtotal+=item.getValue();
+        }
+        Assertions.assertEquals(388, items_sumtotal);
+
+    }
 
     //>>>>>>>>>>>>>>>>>>>>>>ADMIN: ADDING & REMOVING RESTAURANTS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
@@ -72,4 +86,6 @@ class RestaurantServiceTest {
         Assertions.assertEquals(initialNumberOfRestaurants + 1, service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 }
